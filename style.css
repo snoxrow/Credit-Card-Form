@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  /* position: relative; */
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 1440px;
+  height: 900px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 25px hsl(270, 33%, 88%);
+}
+
+.left {
+  background-image: url(./images/bg-main-desktop.png);
+  position: relative;
+  background-repeat: no-repeat;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  padding: 20px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+form input {
+  width: 100%;
+  height: 50px;
+  border-radius: 6px;
+  border: 0.1rem solid rgba(185, 184, 184, 80%);
+  font-size: 18px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+input:focus {
+  outline-color: hsl(278, 68%, 35%);
+}
+form label {
+  width: 100%;
+  margin-bottom: -20px;
+  font-size: 18px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
+}
+
+.front-card,
+.back-card {
+  width: 447px;
+  height: 245px;
+  position: absolute;
+  font-family: "Space Grotesk", sans-serif;
+  color: #181616;
+}
+
+.back-card {
+  top: 475px;
+  left: 250px;
+  background-image: url(./images/bg-card-back.png);
+  position: relative;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.front-card {
+  top: 175px;
+  left: 150px;
+  background-image: url(./images/bg-card-front.png);
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  color: #fff;
+  font-family: "Space Grotesk", sans-serif;
+}
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Space Grotesk", sans-serif;
+  margin-top: 40px;
+}
+
+.card-number {
+  font-size: 25px;
+  letter-spacing: 3px;
+  word-spacing: 15px;
+  font-family: "Space Grotesk", sans-serif;
+  position: relative;
+  bottom: -65px;
+}
+
+.card-name {
+  text-transform: uppercase;
+}
+input::placeholder {
+  color: hsl(279, 6%, 55%);
+  opacity: 0.7;
+  padding: 15px;
+}
+
+.contain {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+}
+
+.mm-yy-contain {
+  display: flex;
+  gap: 7px;
+}
+.dates-contain input {
+  width: 80px;
+}
+.cvc-contain {
+  /* display: flex;
+  flex-direction: column;
+  flex: 0.9; */
+  width: 55%;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+.dates-contain {
+  display: flex;
+  flex-direction: column;
+}
+
+#cvc-back {
+  position: absolute;
+  right: 50px;
+  top: 110px;
+  color: hsl(270, 3%, 87%);
+}
+
+#cvc-label {
+  margin-top: 100px;
+}
+button {
+  background-color: hsl(278, 68%, 11%);
+  color: #fff;
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: "Space Grotesk", sans-serif;
+  cursor: pointer;
+}
+
+.afterContinue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 500px;
+}
+
+.afterContinue p {
+  color: hsl(270, 3%, 60%);
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+.error {
+  margin-top: 2px;
+  color: red;
+  font-size: 12px;
+}
+
+.error-check {
+  border: 1px solid red;
+}
+
+@media (max-width: 414px) {
+  body {
+    padding: 0;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    height: 100%;
+    /* padding: 0; */
+  }
+  .right {
+    width: 414px;
+    height: 414px;
+  }
+  .left {
+    background-image: url(./images/bg-main-mobile.png);
+    background-repeat: repeat-x;
+    object-fit: cover;
+    width: 100%;
+    scale: 1.14;
+  }
+
+  .front-card,
+  .back-card {
+    scale: 0.6;
+  }
+  .back-card {
+    left: 0;
+    top: -15px;
+  }
+  form {
+    width: 414px;
+  }
+
+  .front-card {
+    z-index: 2;
+    left: -50px;
+    top: 70px;
+  }
+
+  .afterContinue button {
+    width: 70%;
+    scale: 0.9;
+  }
+
+  .afterContinue {
+    margin-bottom: 30px;
+  }
+  input {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .right {
+    width: 375px;
+    height: 375px;
+  }
+
+  form {
+    scale: 0.9;
+  }
+}

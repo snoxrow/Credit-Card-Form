@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Interactive card details form</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="front-card">
+          <p class="card-number">0000 0000 0000 0000</p>
+          <div class="card-info">
+            <p class="card-name">JANE APPLESEED</p>
+            <p class="card-expiry">
+              <span id="left-month">00</span>/<span id="left-year">00</span>
+            </p>
+          </div>
+        </div>
+        <div class="back-card">
+          <div id="cvc-back">000</div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="afterContinue hide">
+          <svg
+            width="80"
+            height="80"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="40" cy="40" r="40" fill="url(#a)" />
+            <path d="M28 39.92 36.08 48l16-16" stroke="#fff" stroke-width="3" />
+            <defs>
+              <linearGradient
+                id="a"
+                x1="-23.014"
+                y1="11.507"
+                x2="0"
+                y2="91.507"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#6348FE" />
+                <stop offset="1" stop-color="#610595" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <h1>THANK YOU!</h1>
+          <p>We've Added your Card Details</p>
+          <button type="button" id="tyBtn">Continue</button>
+        </div>
+        <form class="show" action="">
+          <label for="name">CARDHOLDER NAME</label><br />
+          <input
+            id="name"
+            type="text"
+            placeholder=" e.g. Jane Appleseed"
+          /><br />
+          <p id="nameError" class="error hide">Can't be blank</p>
+          <label for="number">CARD NUMBER</label><br />
+          <input
+            type="text"
+            id="cardNumber"
+            maxlength="19"
+            onKeyUp="formatCreditCardOnKey(event)"
+            onBlur="formatCreditCard()"
+            onFocus="formatCreditCard()"
+            placeholder=" e.g. 1234 5678 9123 0000"
+          />
+          <p id="numberError" class="error hide">
+            Not enough numbers, please try again
+          </p>
+          <div class="contain">
+            <div class="dates-contain">
+              <label for="date">EXP. DATE (MM/YY)</label><br />
+              <div class="mm-yy-contain">
+                <div class="temp">
+                  <input
+                    id="month"
+                    type="number"
+                    min="01"
+                    max="12"
+                    maxlength="2"
+                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                    placeholder="MM"
+                  /><br />
+                  <p id="monthError" class="error hide">Can't be blank</p>
+                </div>
+                <div class="temp">
+                  <input
+                    id="year"
+                    type="number"
+                    min="23"
+                    max="40"
+                    maxlength="2"
+                    oninput="this.value=this.value.slice(0,this.maxLength)"
+                    placeholder="YY"
+                  /><br />
+                  <p id="yearError" class="error hide">Can't be blank</p>
+                </div>
+              </div>
+            </div>
+            <div class="cvc-contain">
+              <label id="cvc-label" for="cvc">CVC</label><br />
+              <input
+                id="cvc"
+                type="number"
+                min="000"
+                max="999"
+                maxlength="3"
+                oninput="this.value=this.value.slice(0,this.maxLength)"
+                placeholder="e.g. 123"
+              /><br />
+              <p id="cvcError" class="error hide">Can't be blank</p>
+            </div>
+          </div>
+          <button type="button" id="continueBtn">Continue</button>
+        </form>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
