@@ -208,7 +208,7 @@ button {
   border: 1px solid red;
 }
 
-@media (max-width: 414px) {
+@media (max-width: 450px) {
   body {
     padding: 0;
   }
@@ -226,7 +226,7 @@ button {
     background-image: url(./images/bg-main-mobile.png);
     background-repeat: repeat-x;
     object-fit: cover;
-    width: 100%;
+    width: 430px;
     scale: 1.14;
   }
 
@@ -261,13 +261,16 @@ button {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 380px) {
   .right {
     width: 375px;
     height: 375px;
   }
-
+  .left {
+    width: 375px;
+    scale: 1;
+  }
   form {
-    scale: 0.9;
+    scale: 0.86;
   }
 }
